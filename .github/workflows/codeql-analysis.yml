@@ -55,11 +55,8 @@ jobs:
       run: .paket\\paket.exe install
       shell: cmd
 
-    - name: Restore package
-      run: msbuild -p:RestorePackagesConfig=true -t:restore
-
-    - name: Build Solution
-      run: msbuild GithubActionsDemo.sln /p:RestorePackages=false /p:Configuration=Release
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
